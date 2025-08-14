@@ -1,7 +1,5 @@
 name: Publish Blog Posts
-on:
-  push:
-    branches: ["main"]
+on: [push]
 
 jobs:
   publish:
@@ -11,7 +9,7 @@ jobs:
       - name: Publish to Hashnode
         uses: prettyirrelevant/hashnode-posts-publisher@v0.1.3
         with:
-          posts-directory: posts
+          posts-directory: posts # ← 実在ディレクトリ名
           supported-formats: md,html
           access-token: ${{ secrets.HASHNODE_TOKEN }}
           publication-id: ${{ secrets.HASHNODE_PUBLICATION_ID }}
