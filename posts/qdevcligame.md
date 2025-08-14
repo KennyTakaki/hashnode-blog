@@ -1,5 +1,5 @@
 ---
-title: "I Tried Making a Game with Amazon Q Developer CLI"
+title: "AWS CDK Multi-Account Deployment Guide"
 slug: q-dev-cli-game
 tags: ["aws"]
 publish: true
@@ -12,7 +12,6 @@ Here’s the English translation of your Markdown:
 # Overview
 
 I regularly use Amazon Q CLI in my work, so when I saw this event, I decided to participate:
-[https://aws.amazon.com/jp/blogs/news/build-games-with-amazon-q-cli-and-score-a-t-shirt/](https://aws.amazon.com/jp/blogs/news/build-games-with-amazon-q-cli-and-score-a-t-shirt/)
 
 I had previously made a simple game using Godot, so I was interested in the event. I’ve also experienced firsthand that Amazon Q CLI can create a simple SPA app in just a few hours, so I wanted to see if it could do the same for code in a different field. That’s why I joined.
 
@@ -23,7 +22,7 @@ I’ll keep a simple log of the time it took for the work. Since I was writing t
 ### Final Game Code
 
 Repository here:
-[https://github.com/KennyTakaki/amazon-q-cli-game](https://github.com/KennyTakaki/amazon-q-cli-game)
+https://github.com/KennyTakaki/amazon-q-cli-game
 
 ### Number of Prompts
 
@@ -56,7 +55,6 @@ Based on my regular usage, I feel that with specific enough instructions, you ca
 
 This took about 30 minutes in total. For now, a sample game displayed correctly, so the environment setup seemed fine.
 
-![alt text](/images/articles/amazon-q-cli-game/pygame.png)
 
 ## Creating the Project Skeleton (Prompt 1: 10 min)
 
@@ -65,7 +63,6 @@ To make a game, you need various files, such as sprite sheets, audio assets, gam
 The `src` directory was divided into UI, game logic, game entities, and utils, and separated from `assets`. This seemed reasonable, so I decided to adopt it as is.
 
 What surprised me was that, at this stage, the prompt output already included a working game. It felt like overkill, but also very convenient.
-[https://x.com/frommiddle1/status/1931151842794418416](https://x.com/frommiddle1/status/1931151842794418416)
 
 ```
 Please provide a recommended directory structure for creating a game with PyGame.
@@ -120,7 +117,7 @@ game_project/
 ## Providing Game Specifications (Prompt 2: 5 min)
 
 To have Q CLI create the program, I needed to decide on the game specifications.
-Since it should already support handling images from the terminal ([reference](https://aws.amazon.com/jp/blogs/news/amazon-q-developer-cli-supports-image-inputs-in-your-terminal/)), I could have used an image of the game screen to exchange ideas. However, I decided to stick with a text-based specification, since I feel that logic for program execution is still best conveyed in text.
+Since it should already support handling images from the terminal , I could have used an image of the game screen to exchange ideas. However, I decided to stick with a text-based specification, since I feel that logic for program execution is still best conveyed in text.
 
 The game has a simple concept: guessing whether an AWS service name starts with “Amazon” or “AWS.” I wrote down the screen flow and possible interactions for each screen and input them into the prompt.
 
@@ -162,7 +159,6 @@ It also has a “Play Again” button that resets all counters and returns to th
 ## Debug Instructions (Prompt 3: 5 min)
 
 However, the game generated from the previous prompt didn’t start correctly.
-![alt text](/images/articles/amazon-q-cli-game/black.png)
 
 So I ran a concise debug prompt:
 
@@ -171,7 +167,6 @@ When starting the game, only a black screen appears and the intended behavior do
 ```
 
 With that, the game logic began displaying as intended. I was impressed that such a short prompt led to the correct fix.
-![alt text](/images/articles/amazon-q-cli-game/WIP01.gif)
 
 ## Debug Instructions Regarding Language (Prompt 4: 5 min)
 
@@ -201,7 +196,6 @@ On the end screen, I want the evaluation message to appear within a white backgr
 Also, please edit the README to match the current game specifications.
 ```
 
-![alt text](/images/articles/amazon-q-cli-game/FIx.gif)
 
 # Impressions
 
